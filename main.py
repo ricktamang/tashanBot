@@ -22,6 +22,8 @@ async def trap(update: Update, context: ContextTypes.DEFAULT_TYPE):
     trap_message = "⚠️ Trap Alert: 5 or 0 has appeared too frequently. Avoid if they repeat."
     await update.message.reply_text(trap_message)
 
+import os
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 app = ApplicationBuilder().token(BOT_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("live", live))
